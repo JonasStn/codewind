@@ -9,5 +9,5 @@ import { AppHeaderComponent } from '@ui-components';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  @HostBinding('class.dark') darkMode = false;
+  @HostBinding('class.dark') darkMode = true;
 }

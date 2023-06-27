@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@shared/interfaces": ["packages/shared/interfaces/src/index.ts"],
-      "@ui-components": ["packages/ui-components/src/index.ts"]
+      "@ui-components": ["packages/ui-components/src/index.ts"],
+      "ui-articles": ["packages/ui-articles/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
