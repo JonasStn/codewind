@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@shared/interfaces": ["packages/shared/interfaces/src/index.ts"]
+      "@shared/interfaces": ["packages/shared/interfaces/src/index.ts"],
+      "@ui-components": ["packages/ui-components/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

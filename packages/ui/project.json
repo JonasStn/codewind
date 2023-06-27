@@ -1,6 +1,7 @@
 {
   "name": "ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "implicitDependencies": ["ui-components"],
   "projectType": "application",
   "prefix": "cw",
   "sourceRoot": "packages/ui/src",

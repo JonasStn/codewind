@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AppHeaderComponent } from '@ui-components';
 
 @Component({
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, AppHeaderComponent],
   selector: 'cw-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ui';
+  @HostBinding('class.dark') darkMode = false;
 }
