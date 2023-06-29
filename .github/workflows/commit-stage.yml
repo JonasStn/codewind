@@ -38,6 +38,8 @@ jobs:
 
       - name: Check Code
         run: npx nx format:check
+
+      - name: Lint
         run: npx nx affected --target=lint
 
       - name: Build
@@ -67,5 +69,3 @@ jobs:
 
       - name: Run Unit Tests
         run: npx nx affected --target=test
-  
-
