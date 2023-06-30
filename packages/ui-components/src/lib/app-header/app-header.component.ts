@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
   imports: [CommonModule],
   templateUrl: './app-header.component.html',
 })
-export class AppHeaderComponent {}
+export class AppHeaderComponent {
+  menuOpen = false;
+}

@@ -28,6 +28,6 @@
       }
     }
   },
-  "tags": [],
+  "tags": ["type:test"],
   "implicitDependencies": ["ui"]
 }
