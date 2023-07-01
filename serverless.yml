@@ -6,6 +6,8 @@ plugins:
 provider:
   name: aws
   runtime: nodejs18.x
+  stage: dev
+  region: eu-central-1
 
 package:
   patterns:
