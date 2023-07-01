@@ -31,8 +31,8 @@ jobs:
         id: cache-primes
         with:
           path: |
-                node_modules
-                /home/runner/.cache/Cypress
+            node_modules
+            /home/runner/.cache/Cypress
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
