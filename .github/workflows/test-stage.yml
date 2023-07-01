@@ -39,3 +39,8 @@ jobs:
 
       - name: Run e2e Tests
         run: npx nx run ui-e2e:e2e
+      - uses: actions/upload-artifact@v3
+        with:
+          name: e2e-error-reports
+          path: dist/cypress/packages
+          if-no-files-found: ignore

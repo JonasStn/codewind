@@ -90,4 +90,8 @@ jobs:
         run: npm ci
 
       - name: Run Unit Tests
-        run: npx nx affected --target=test
+        run: npx nx affected --target=test --configuration=ci
+      - uses: actions/upload-artifact@v3
+        with:
+          name: coverage-reports
+          path: coverage/packages/
