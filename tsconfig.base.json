@@ -15,10 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@shared/interfaces": ["packages/shared/interfaces/src/index.ts"],
-      "@ui-components": ["packages/ui-components/src/index.ts"],
       "@articles-api": ["packages/articles-api/src/index.ts"],
-      "@articles-ui": ["packages/articles-ui/src/index.ts"]
+      "@articles-ui": ["packages/articles-ui/src/index.ts"],
+      "shared-interfaces": ["packages/shared-interfaces/src/index.ts"],
+      "shared-ui-components": ["packages/shared-ui-components/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
