@@ -16,26 +16,38 @@
         "tsConfig": "packages/app-api/tsconfig.app.json",
         "assets": ["packages/app-api/src/assets"],
         "isolatedConfig": true,
-        "webpackConfig": "packages/app-api/webpack.config.js"
+        "webpackConfig": "packages/app-api/webpack.config.js",
+        "sourceMap": true,
+        "progress": true,
+        "verbose": true
       },
       "configurations": {
         "development": {},
-        "production": {}
+        "production": {
+          "main": "packages/app-api/src/main.serverless.ts"
+        }
+      }
+    },
+    "install": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "cwd": "dist/packages/app-api",
+        "command": "npm i --verbose"
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["install"],
+      "options": {
+        "commands": ["npx sls deploy --verbose", "npx serverless info"],
+        "parallel": false
       }
     },
     "serve": {
       "executor": "@nx/js:node",
-      "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "app-api:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "app-api:build:development"
-        },
-        "production": {
-          "buildTarget": "app-api:build:production"
-        }
+        "buildTarget": "api:build:development"
       }
     },
     "lint": {

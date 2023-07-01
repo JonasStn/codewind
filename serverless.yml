@@ -1,0 +1,25 @@
+service: codewind-api
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+package:
+  patterns:
+    - '!*'
+    - '!*/**'
+    - dist/packages/app-api/**/*
+
+functions:
+  main:
+    handler: dist/packages/app-api/main.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
