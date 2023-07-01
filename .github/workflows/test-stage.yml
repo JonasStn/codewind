@@ -38,7 +38,7 @@ jobs:
         run: npm ci
 
       - name: Run e2e Tests
-        run: npx nx run ui-e2e:e2e
+        run: npx nx run app-ui-e2e:e2e
       - uses: actions/upload-artifact@v3
         with:
           name: e2e-error-reports
