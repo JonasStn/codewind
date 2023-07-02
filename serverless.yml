@@ -9,6 +9,9 @@ provider:
   stage: dev
   region: eu-central-1
 
+custom:
+  secrets: ${ssm:/aws/reference/secretsmanager/codewind/dev/config}
+
 package:
   patterns:
     - '!*'
@@ -18,6 +21,8 @@ package:
 functions:
   main:
     handler: dist/packages/app-api/main.handler
+    environment:
+      DATABASE_URL: ${self:custom.secrets.DATABASE_URL}
     events:
       - http:
           method: ANY

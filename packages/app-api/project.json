@@ -33,7 +33,13 @@
       "dependsOn": ["build"],
       "options": {
         "cwd": "dist/packages/app-api",
-        "command": "npm i --verbose"
+        "color": true,
+        "commands": [
+          "npm i --verbose",
+          "npx cpx ../../../packages/shared-api-repository/prisma/schema.prisma .",
+          "npx prisma generate"
+        ],
+        "parallel": false
       }
     },
     "deploy": {

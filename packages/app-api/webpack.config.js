@@ -9,6 +9,7 @@ const basePackage = {
   dependencies: {
     '@nestjs/platform-express':
       packageJson.dependencies['@nestjs/platform-express'],
+    prisma: packageJson.dependencies['prisma'],
   },
 };
 
