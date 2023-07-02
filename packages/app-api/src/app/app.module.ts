@@ -1,13 +1,8 @@
 import { ArticlesApiModule } from '@articles-api';
 import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { CustomConfigModule } from './config/config.module';
+import { SharedApiRepositoryModule } from '@shared-api-db';
 
 @Module({
-  imports: [CustomConfigModule, ArticlesApiModule],
+  imports: [SharedApiRepositoryModule, ArticlesApiModule],
 })
-export class AppModule {
-  constructor(configService: ConfigService) {
-    console.log(configService.get('databaseUrl'));
-  }
-}
+export class AppModule {}

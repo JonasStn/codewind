@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
+import { CqrsModule } from '@nestjs/cqrs';
 import { ArticlesApiController } from './articles-api.controller';
-import { ArticlesApiService } from './articles-api.service';
+import { CommandHandlers } from './commands';
+import { QueryHandlers } from './queries';
 
 @Module({
+  imports: [CqrsModule],
   controllers: [ArticlesApiController],
-  providers: [ArticlesApiService],
-  exports: [ArticlesApiService],
+  providers: [...CommandHandlers, ...QueryHandlers],
 })
 export class ArticlesApiModule {}
