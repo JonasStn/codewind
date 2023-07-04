@@ -1,6 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AppHeaderComponent } from 'shared-ui-components';
+import { AppHeaderComponent } from '@shared-ui-components';
 
 @Component({
   standalone: true,
