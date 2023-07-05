@@ -21,7 +21,6 @@ export const uiArticlesRoutes: Route[] = [
       {
         path: '',
         component: ArticlesComponent,
-        providers,
       },
       {
         path: 'create',

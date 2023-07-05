@@ -4,6 +4,13 @@
   "sourceRoot": "packages/shared-api-repository/src",
   "projectType": "library",
   "targets": {
+    "generate-prisma-client": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/shared-api-repository",
+        "command": "npx prisma generate"
+      }
+    },
     "migrate": {
       "executor": "nx:run-commands",
       "options": {
