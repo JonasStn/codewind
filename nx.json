@@ -1,13 +1,4 @@
 {
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx-cloud",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "ODY3ZDcyZjUtN2JkZC00MWNkLWFjNDUtNzM5NGVjYmU0MmU1fHJlYWQtd3JpdGU="
-      }
-    }
-  },
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "affected": {
@@ -33,11 +24,17 @@
       "e2eTestRunner": "cypress"
     },
     "@nx/angular:library": {
+      "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
     "@nx/angular:component": {
       "style": "scss"
+    }
+  },
+  "pluginsConfig": {
+    "@nrwl/js": {
+      "analyzeSourceFiles": true
     }
   }
 }

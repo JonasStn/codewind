@@ -1,0 +1,51 @@
+{
+  "name": "shared-api-repository",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/shared-api-repository/src",
+  "projectType": "library",
+  "targets": {
+    "generate-prisma-client": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/shared-api-repository",
+        "command": "npx prisma generate"
+      }
+    },
+    "migrate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/shared-api-repository",
+        "command": "npx prisma migrate dev --name init"
+      }
+    },
+    "push-changes": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/shared-api-repository",
+        "command": "npx prisma db push"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/shared-api-repository/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/shared-api-repository/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["type:shared", "platform:server"]
+}

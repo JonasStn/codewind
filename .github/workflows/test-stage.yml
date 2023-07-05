@@ -17,6 +17,7 @@ concurrency:
 
 jobs:
   e2e:
+    name: Run e2e
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -29,7 +30,9 @@ jobs:
         uses: actions/cache@v3
         id: cache-primes
         with:
-          path: node_modules
+          path: |
+            node_modules
+            /home/runner/.cache/Cypress
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
@@ -37,4 +40,9 @@ jobs:
         run: npm ci
 
       - name: Run e2e Tests
-        run: npx nx run ui-e2e:e2e
+        run: npx nx run app-ui-e2e:e2e
+      - uses: actions/upload-artifact@v3
+        with:
+          name: e2e-error-reports
+          path: dist/cypress/packages
+          if-no-files-found: ignore

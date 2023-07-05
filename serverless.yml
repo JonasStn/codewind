@@ -1,0 +1,32 @@
+service: codewind-api
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: eu-central-1
+
+custom:
+  secrets: ${ssm:/aws/reference/secretsmanager/codewind/dev/config}
+
+package:
+  patterns:
+    - '!*'
+    - '!*/**'
+    - dist/packages/app-api/**/*
+
+functions:
+  main:
+    handler: dist/packages/app-api/main.handler
+    environment:
+      DATABASE_URL: ${self:custom.secrets.DATABASE_URL}
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'

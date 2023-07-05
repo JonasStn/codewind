@@ -40,3 +40,8 @@ testem.log
 Thumbs.db
 
 .angular
+.serverless
+
+## keep it out of version control
+.credentials
+.env

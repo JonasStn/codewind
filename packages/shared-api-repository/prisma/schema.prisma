@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+//---Articles-Start-- 
+
+model Article {
+  id      BigInt  @id @default(autoincrement())
+  title   String  @db.String(255)
+  content String?
+}
+
+//---Articles-End-- 

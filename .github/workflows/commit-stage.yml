@@ -17,6 +17,7 @@ concurrency:
 
 jobs:
   build:
+    name: Build Project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -53,10 +54,14 @@ jobs:
       - name: Lint
         run: npx nx affected --target=lint
 
+      - name: Generate Prisma Client
+        run: npx nx run shared-api-repository:generate-prisma-client
+
       - name: Build
         run: npx nx affected --target=build
 
   test:
+    name: Run Unit Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -88,4 +93,8 @@ jobs:
         run: npm ci
 
       - name: Run Unit Tests
-        run: npx nx affected --target=test
+        run: npx nx affected --target=test --configuration=ci
+      - uses: actions/upload-artifact@v3
+        with:
+          name: coverage-reports
+          path: coverage/packages/

@@ -1,0 +1,31 @@
+:host ::ng-deep input {
+  @apply block
+    border-0 py-1.5
+    focus:ring-2 
+    focus:ring-inset 
+    p-2
+    ring-1 
+    ring-inset 
+    rounded-md
+    shadow-sm 
+    sm:leading-6
+    sm:text-sm 
+    w-full
+  dark:bg-slate-500
+  dark:ring-slate-800
+  dark:text-white
+  focus:ring-indigo-600
+  placeholder:text-gray-400
+  ring-gray-300
+  text-gray-900;
+}
+
+:host ::ng-deep label {
+  @apply block 
+    font-medium
+    leading-6 
+    pt-1.5 
+    text-sm 
+  dark:text-white
+  text-gray-900;
+}
