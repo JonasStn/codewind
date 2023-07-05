@@ -7,5 +7,7 @@ export const ArticlesActions = createActionGroup({
     loadArticles: emptyProps(),
     articlesLoadedSuccess: props<{ articles: ArticleDTO[] }>(),
     articlesLoadedFailure: props<{ error: string }>(),
+    createArticle: props<{ article: ArticleDTO }>(),
+    articlesCreatedFailure: props<{ error: string }>(),
   },
 });

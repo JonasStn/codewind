@@ -1,5 +1,5 @@
 export interface ArticleDTO {
-  id: string;
+  id?: string;
   title: string;
-  content: string;
+  content?: string;
 }

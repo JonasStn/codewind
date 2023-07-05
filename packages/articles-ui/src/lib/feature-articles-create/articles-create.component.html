@@ -1,1 +1,36 @@
-<p>feature-articles-create works!</p>
+<cw-app-page-layout>
+  <span pageHeader> Create New Article </span>
+  <form class="col-span-full" [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    <cw-forms-input class="col-span-4 md:col-start-3 md:col-end-7">
+      <label for="title" label>Title</label>
+      <input
+        formControlName="title"
+        type="text"
+        autocomplete="off"
+        name="title"
+        id="title"
+      />
+    </cw-forms-input>
+    <cw-forms-textarea
+      class="row-start-2 col-span-4 md:col-start-3 md:col-end-7"
+    >
+      <label for="content" label>Content</label>
+      <textarea formControlName="content" id="content" name="content" rows="3">
+      </textarea>
+    </cw-forms-textarea>
+    <div class="mt-6 flex items-center justify-end gap-x-6">
+      <button
+        type="button"
+        class="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+      >
+        Cancel
+      </button>
+      <button
+        type="submit"
+        class="rounded-md bg-indigo-600 dark:bg-indigo-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 dark:hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:focus-visible:bg-indigo-800"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</cw-app-page-layout>

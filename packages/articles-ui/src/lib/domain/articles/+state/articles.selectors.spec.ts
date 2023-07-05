@@ -1,4 +1,4 @@
-import { ArticlesEntity } from './articles.models';
+import { ArticleDTO } from '@shared-interfaces';
 import {
   articlesAdapter,
   ArticlesPartialState,
@@ -8,12 +8,12 @@ import * as ArticlesSelectors from './articles.selectors';
 
 describe('Articles Selectors', () => {
   const ERROR_MSG = 'No Error Available';
-  const getArticlesId = (it: ArticlesEntity) => it.id;
+  const getArticlesId = (it: ArticleDTO) => it.id;
   const createArticlesEntity = (id: string, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as ArticlesEntity);
+      title: name || `name-${id}`,
+    } as ArticleDTO);
 
   let state: ArticlesPartialState;
 
@@ -45,7 +45,7 @@ describe('Articles Selectors', () => {
     });
 
     it('selectEntity() should return the selected Entity', () => {
-      const result = ArticlesSelectors.selectEntity(state) as ArticlesEntity;
+      const result = ArticlesSelectors.selectEntity(state) as ArticleDTO;
       const selId = getArticlesId(result);
 
       expect(selId).toBe('PRODUCT-BBB');

@@ -1,17 +1,17 @@
 import { Action } from '@ngrx/store';
 
-import * as ArticlesActions from './articles.actions';
-import { ArticlesEntity } from './articles.models';
+import { ArticleDTO } from '@shared-interfaces';
+import { ArticlesActions } from './articles.actions';
 import {
   ArticlesState,
-  initialArticlesState,
   articlesReducer,
+  initialArticlesState,
 } from './articles.reducer';
 
 describe('Articles Reducer', () => {
-  const createArticlesEntity = (id: string, name = ''): ArticlesEntity => ({
+  const createArticlesEntity = (id: string, name = ''): ArticleDTO => ({
     id,
-    name: name || `name-${id}`,
+    title: name || `name-${id}`,
   });
 
   describe('valid Articles actions', () => {
@@ -20,13 +20,11 @@ describe('Articles Reducer', () => {
         createArticlesEntity('PRODUCT-AAA'),
         createArticlesEntity('PRODUCT-zzz'),
       ];
-      const action = ArticlesActions.loadArticlesSuccess({ articles });
-
+      const action = ArticlesActions.articlesLoadedSuccess({ articles });
       const result: ArticlesState = articlesReducer(
         initialArticlesState,
         action
       );
-
       expect(result.loaded).toBe(true);
       expect(result.ids.length).toBe(2);
     });
@@ -35,9 +33,7 @@ describe('Articles Reducer', () => {
   describe('unknown action', () => {
     it('should return the previous state', () => {
       const action = {} as Action;
-
       const result = articlesReducer(initialArticlesState, action);
-
       expect(result).toBe(initialArticlesState);
     });
   });

@@ -1,31 +1,22 @@
 <ng-container *ngrxLet="articlesFacade.allArticles$ as articles">
-  <section class="bg-white dark:bg-gray-900">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-      <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-        <h2
-          class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
-        >
-          Our Blog
-        </h2>
-        <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
-      </div>
-      <div class="grid gap-8 lg:grid-cols-2">
-        <cw-article-preview
-          *ngFor="let article of articles"
-          [article]="article"
-        >
-        </cw-article-preview>
-      </div>
-    </div>
-  </section>
+  <cw-app-page-layout>
+    <span pageHeader> Our Blog </span>
+    <span pageDescription>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+      voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+      clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+      amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+      diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+      sit amet.
+    </span>
+    <cw-article-preview
+      class="col-span-8 lg:col-span-4"
+      *ngFor="let article of articles"
+      [article]="article"
+    >
+    </cw-article-preview>
+  </cw-app-page-layout>
 </ng-container>
