@@ -10,6 +10,6 @@ describe('ui', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     getNewArticleLink().click();
-    cy.url().should('include', '/ui-articles');
+    cy.url().should('include', '/articles');
   });
 });

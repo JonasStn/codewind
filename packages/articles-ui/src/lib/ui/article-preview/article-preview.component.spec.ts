@@ -12,6 +12,7 @@ describe('ArticlePreviewComponent', () => {
 
     fixture = TestBed.createComponent(ArticlePreviewComponent);
     component = fixture.componentInstance;
+    component.article = { title: 'title' };
     fixture.detectChanges();
   });
 

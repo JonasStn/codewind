@@ -9,14 +9,12 @@ describe('ArticlesFacade', () => {
   let facade: ArticlesFacade;
   let store: MockStore;
 
-  describe('used in NgModule', () => {
-    beforeEach(() => {
-      TestBed.configureTestingModule({
-        providers: [ArticlesFacade, provideMockStore()],
-      });
-      facade = TestBed.inject(ArticlesFacade);
-      store = TestBed.inject(MockStore);
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [ArticlesFacade, provideMockStore()],
     });
+    store = TestBed.inject(MockStore);
+    facade = TestBed.inject(ArticlesFacade);
   });
 
   it('should be created', () => {

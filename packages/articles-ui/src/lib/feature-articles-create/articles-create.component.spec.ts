@@ -1,10 +1,17 @@
-import { ArticlesCreateComponent } from './articles-create.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ArticlesFacade } from '../domain/articles';
+import { ArticlesComponent } from '../feature-articles/articles.component';
 
 describe('ArticlesComponent', () => {
-  let testUnit: ArticlesCreateComponent;
+  let testUnit: ArticlesComponent;
+  let fixture: ComponentFixture<ArticlesComponent>;
+  const articleFacadeMock = { createArticle: jest.fn() };
 
   beforeEach(() => {
-    testUnit = new ArticlesCreateComponent();
+    fixture = TestBed.configureTestingModule({
+      providers: [{ provide: ArticlesFacade, useValue: articleFacadeMock }],
+    }).createComponent(ArticlesComponent);
+    testUnit = fixture.componentInstance;
   });
 
   it('should create', () => {

@@ -1,15 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideMockStore } from '@ngrx/store/testing';
+import { of } from 'rxjs';
 import { ArticlesFacade } from '../domain/articles';
 import { ArticlesComponent } from './articles.component';
 
 describe('ArticlesComponent', () => {
   let testUnit: ArticlesComponent;
   let fixture: ComponentFixture<ArticlesComponent>;
+  const articleFacadeMock = { allArticles$: of([]) };
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      providers: [ArticlesFacade, provideMockStore()],
+      providers: [{ provide: ArticlesFacade, useValue: articleFacadeMock }],
     }).createComponent(ArticlesComponent);
     testUnit = fixture.componentInstance;
   });
